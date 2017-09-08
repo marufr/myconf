@@ -27,13 +27,13 @@ Plugin 'scrooloose/syntastic'
 Plugin 'jalvesaq/Nvim-R'
 
 " tsuquyomi (for typescript)
-Plugin 'Quramy/tsuquyomi'
+" Plugin 'Quramy/tsuquyomi'
 
 " for typescript syntax highlighting
 Plugin 'leafgarland/typescript-vim'
 
 " required for tsuquyomi
-Plugin 'Shougo/vimproc'
+" Plugin 'Shougo/vimproc'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -80,21 +80,22 @@ set number
 set expandtab
 set shiftwidth=4
 set softtabstop=4
+set numberwidth=5
 
 "-------------------------------------------------------------------------------
 " navigation
 "-------------------------------------------------------------------------------
 " Disable Arrow keys in Escape mode
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
 
 " Disable Arrow keys in Insert mode
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+" imap <up> <nop>
+" imap <down> <nop>
+" imap <left> <nop>
+" imap <right> <nop>
 "-------------------------------------------------------------------------------
 " stuff for syntastic
 "-------------------------------------------------------------------------------
@@ -171,7 +172,24 @@ set hlsearch
 " :nohlsearch
 hi Search ctermbg=DarkYellow ctermfg=White
 
-colorscheme industry
+" map <CR> to turn of search text highlighting
+nnoremap <silent> <CR> :nohlsearch<CR><CR>
+
+color industry
+syntax on
+
+" highlight current line
+set cursorline
+hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
+
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight  CursorLine ctermbg=blue ctermfg=white guibg=blue guifg=white
+
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight  CursorLine ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
+
+set backspace=indent,eol,start
+
 "-------------------------------------------------------------------------------
 " function keys
 "-------------------------------------------------------------------------------
