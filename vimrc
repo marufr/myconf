@@ -75,12 +75,12 @@ filetype plugin indent on    " required
 
 filetype on
 set number
+set numberwidth=5
 
 " tabs as four spaces
 set expandtab
 set shiftwidth=4
 set softtabstop=4
-set numberwidth=5
 
 "-------------------------------------------------------------------------------
 " navigation
@@ -162,9 +162,9 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 autocmd BufWritePre *.tex,*.bib,*.ts,*.js,*.json,*.py,*.c,*.cpp,*.h,*.hpp,.gitignore,.vimrc,*.R,*.md :call <SID>StripTrailingWhitespaces()
 
-" columns at 81 and 101 chracters
-set colorcolumn=81,101
-hi ColorColumn ctermbg=DarkYellow
+" columns at 81 chracters
+highlight ColorColumn ctermbg=Gray guibg=Gray
+set colorcolumn=81
 
 " hilight matching words in search
 set hlsearch
@@ -183,12 +183,16 @@ set cursorline
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 
 " Change Color when entering Insert Mode
-autocmd InsertEnter * highlight  CursorLine ctermbg=blue ctermfg=white guibg=blue guifg=white
+autocmd InsertEnter * highlight  CursorLine ctermbg=DarkGreen ctermfg=White guibg=DarkGreen guifg=white
 
 " Revert Color to default when leaving Insert Mode
 autocmd InsertLeave * highlight  CursorLine ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 
+" Enable backspace opertions
 set backspace=indent,eol,start
+
+" Autosave sessions on leaving vim
+autocmd VimLeave * :mksession! ~/.vim/sessions/last.vim
 
 "-------------------------------------------------------------------------------
 " function keys
