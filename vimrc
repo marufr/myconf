@@ -175,7 +175,7 @@ hi Search ctermbg=DarkYellow ctermfg=White
 " map <CR> to turn of search text highlighting
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
-color industry
+colorscheme desert
 syntax on
 
 " highlight current line
